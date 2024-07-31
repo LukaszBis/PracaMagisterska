@@ -35,9 +35,19 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
     const topic = req.body.topic;
-    return res.status(200).send({fail:topic});
+    if(topic != ''){
+      try {
+          const [result] = await db.query('INSERT INTO topics (name) VALUES (?)', [topic]);
+          res.status(201).send({ id: result.insertId, topic });
+      } catch (err) {
+          res.status(500).send(err.message);
+      }
+    }else{
+      res.status(500).send(err.message);
+    }
+    
 })
 
 app.get('/topics', async (req, res) => {

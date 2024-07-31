@@ -1,5 +1,6 @@
 // components/TopicsList.js
 import React, {useEffect, useState} from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const TopicsList = () => {
   const [topics, setTopics] = useState([])
@@ -31,11 +32,11 @@ const TopicsList = () => {
   return (
     <div>
       <h2>Lista Tematów</h2>
-      <ul>
+      <ListGroup as="ol" numbered>
         {topics.map((topic) => (
-          <li key={topic.id}>{topic.name}</li>
+          <ListGroup.Item as="li" key={topic.id}>{topic.name}</ListGroup.Item>
         ))}
-      </ul>
+      </ListGroup>
     </div>
   );
 };

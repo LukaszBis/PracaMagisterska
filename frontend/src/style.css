@@ -13,30 +13,29 @@
     padding: 20px;
   }
   
-  nav {
+  .nav {
     background-color: #4CAF50;
     padding: 10px 20px;
     border-radius: 5px;
   }
   
-  nav ul {
+  .nav .navitem {
     list-style: none;
     display: flex;
     justify-content: space-around;
   }
   
-  nav ul li {
+  .nav .navitem .navlink {
     margin: 0 10px;
-  }
-  
-  nav ul li a {
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
     font-size: 18px;
   }
   
-  nav ul li a:hover {
-    text-decoration: underline;
+  .nav .navitem .navlink a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
   }
   
   .container {
@@ -58,35 +57,21 @@
   }
   
   form input[type="text"] {
-    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
   }
   
   form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #4CAF50 !important;
+    border: #4CAF50 !important;
   }
   
   form button:hover {
     background-color: #45a049;
   }
   
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul li {
-    background: #f1f1f1;
-    margin: 5px 0;
-    padding: 10px;
-    border-left: 5px solid #4CAF50;
+  ol li {
+    border-left: 5px solid #4CAF50 !important;
   }
   
