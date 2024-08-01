@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 // components/RegisterTopic.js
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 const RegisterTopic = () => {
   const [topic, setTopic] = useState('');
@@ -43,77 +43,18 @@ const RegisterTopic = () => {
   return (
     <div>
       <h2>Zarejestruj Temat</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Form.Control 
           type="text"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Nazwa Tematu"
         />
-        <button type="submit">Zarejestruj</button>
-      </form>
+        <Button type="submit">Zarejestruj</Button>
+      </Form>
     </div>
+    
   );
 };
 
 export default RegisterTopic;
-=======
-// components/RegisterTopic.js
-import React, { useState } from 'react';
-
-const RegisterTopic = () => {
-  const [topic, setTopic] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    const apiUrl = 'http://localhost:8080/register';
-    
-      const requestBody = {
-        topic: topic,
-      };
-  
-      console.log(requestBody)
-
-      fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      })
-        .then((response) => {
-          if (response.status === 500) {
-            throw new Error('Błąd serwera');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if(data.success){
-            document.location.href = '/welcome';
-          }
-        })
-
-
-
-    console.log('Zarejestrowano temat:', topic);
-  };
-
-  return (
-    <div>
-      <h2>Zarejestruj Temat</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={topic}
-          onChange={(e) => setTopic(e.target.value)}
-          placeholder="Nazwa Tematu"
-        />
-        <button type="submit">Zarejestruj</button>
-      </form>
-    </div>
-  );
-};
-
-export default RegisterTopic;
->>>>>>> 83e75301c131f73ece5c632243153a9072ad27e0
